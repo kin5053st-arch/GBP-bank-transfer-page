@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buyer育成プログラム｜銀行振込専用お申込みページ</title>
+  <meta name="description" content="Buyer育成プログラムの銀行振込専用お申込みページです。中古ブランド物販を学び、実践し、利益化を目指す実践型プログラム。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== リセット・ベーススタイル ===== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 17px;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: #2a2a2a;
+      background-color: #fffafa;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ===== 共通レイアウト ===== */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 64px 0;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #1a1a2e;
+      letter-spacing: 0.02em;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 3px;
+      background: linear-gradient(135deg, #b91c1c, #991b1b);
+      margin: 16px auto 0;
+      border-radius: 2px;
+    }
+
+    /* ===== ヘッダー（ロゴエリア） ===== */
+    .site-header {
+      background: #fff;
+      padding: 16px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .site-header .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #b91c1c;
+      letter-spacing: 0.04em;
+    }
+
+    /* ===== 1. ファーストビュー ===== */
+    .hero {
+      background: linear-gradient(135deg, #991b1b 0%, #b91c1c 40%, #dc2626 100%);
+      color: #fff;
+      text-align: center;
+      padding: 72px 24px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ヘッダーの装飾パターン */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 30%, rgba(255,255,255,0.04) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(4px);
+      padding: 8px 24px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+      letter-spacing: 0.04em;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      font-weight: 500;
+      opacity: 0.95;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .hero-price {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 4px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(4px);
+      padding: 16px 36px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .hero-price .label {
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+
+    .hero-price .amount {
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-price .tax {
+      font-size: 1rem;
+      font-weight: 400;
+    }
+
+    .hero-note {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-top: 8px;
+    }
+
+    /* ===== 2. 安心訴求セクション ===== */
+    .trust-section {
+      background: #fff;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 20px;
+      background: #fef8f8;
+      border-radius: 12px;
+      border: 1px solid #fee2e2;
+    }
+
+    .trust-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #fef2f2 0%, #fce8e8 100%);
+      border: 1px solid #fca5a5;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .trust-item h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 4px;
+    }
+
+    .trust-item p {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.7;
+    }
+
+    /* ===== 3. プログラム内容紹介 ===== */
+    .program-section {
+      background: #fffafa;
+    }
+
+    .program-lead {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #3a3a3a;
+      margin-bottom: 36px;
+      line-height: 1.8;
+    }
+
+    .program-list {
+      list-style: none;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .program-list li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 22px;
+      background: #fff;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      border: 1px solid #fee2e2;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #1a1a2e;
+      transition: box-shadow 0.2s;
+    }
+
+    .program-list li:hover {
+      box-shadow: 0 4px 16px rgba(185, 28, 28, 0.08);
+    }
+
+    .program-list li::before {
+      content: '✓';
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      background: linear-gradient(135deg, #b91c1c, #991b1b);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    /* ===== 4. 銀行振込情報セクション ===== */
+    .bank-section {
+      background: #fff;
+    }
+
+    .bank-card {
+      background: linear-gradient(135deg, #fef2f2 0%, #fef8f8 100%);
+      border: 2px solid #fca5a5;
+      border-radius: 16px;
+      padding: 40px 32px;
+      max-width: 560px;
+      margin: 0 auto 32px;
+    }
+
+    .bank-card-title {
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #b91c1c;
+      margin-bottom: 28px;
+      letter-spacing: 0.04em;
+    }
+
+    .bank-info-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .bank-info-table tr {
+      border-bottom: 1px solid #fecaca;
+    }
+
+    .bank-info-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .bank-info-table th {
+      text-align: left;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #444;
+      padding: 14px 8px;
+      width: 110px;
+      vertical-align: top;
+    }
+
+    .bank-info-table td {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      padding: 14px 8px;
+    }
+
+    .bank-notes {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .bank-notes li {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 8px;
+      padding-left: 1.2em;
+      text-indent: -1.2em;
+      line-height: 1.7;
+    }
+
+    .bank-notes li::before {
+      content: '※ ';
+      color: #b91c1c;
+      font-weight: 700;
+    }
+
+    /* ===== 5. 銀行振込の流れ ===== */
+    .flow-section {
+      background: #fffafa;
+    }
+
+    .flow-steps {
+      max-width: 560px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .flow-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding-bottom: 36px;
+      position: relative;
+    }
+
+    .flow-step:last-child {
+      padding-bottom: 0;
+    }
+
+    /* ステップ間の接続線 */
+    .flow-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 23px;
+      top: 48px;
+      width: 2px;
+      height: calc(100% - 48px);
+      background: #fca5a5;
+    }
+
+    .flow-step-number {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #b91c1c, #991b1b);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .flow-step-content h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 4px;
+      padding-top: 4px;
+    }
+
+    .flow-step-content p {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.7;
+    }
+
+    /* ===== 6. 申込みフォームエリア ===== */
+    .form-section {
+      background: #fff;
+    }
+
+    .form-wrapper {
+      max-width: 520px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #fecaca;
+      border-radius: 16px;
+      padding: 40px 32px;
+      box-shadow: 0 8px 32px rgba(185, 28, 28, 0.06);
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 8px;
+    }
+
+    .form-group label .required {
+      display: inline-block;
+      background: #ef4444;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    .form-group label .optional {
+      display: inline-block;
+      background: #94a3b8;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"] {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid #fecaca;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-family: 'Noto Sans JP', sans-serif;
+      color: #2a2a2a;
+      background: #fffafa;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus {
+      border-color: #b91c1c;
+      box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.12);
+      background: #fff;
+    }
+
+    .form-group input::placeholder {
+      color: #999;
+    }
+
+    /* チェックボックス */
+    .form-checkbox {
+      margin: 32px 0 28px;
+    }
+
+    .form-checkbox label {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #1a1a2e;
+      line-height: 1.6;
+    }
+
+    .form-checkbox input[type="checkbox"] {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      margin-top: 2px;
+      accent-color: #b91c1c;
+      cursor: pointer;
+    }
+
+    /* 送信ボタン */
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 20px 24px;
+      background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 700;
+      font-family: 'Noto Sans JP', sans-serif;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s;
+      box-shadow: 0 4px 16px rgba(185, 28, 28, 0.25);
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(185, 28, 28, 0.35);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .form-note {
+      text-align: center;
+      font-size: 0.92rem;
+      color: #555;
+      margin-top: 16px;
+    }
+
+    /* ===== 7. 振込完了後のご案内 ===== */
+    .after-section {
+      background: #fffafa;
+    }
+
+    .after-card {
+      background: #fff;
+      border: 1px solid #fecaca;
+      border-radius: 16px;
+      padding: 36px 32px;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .after-card p {
+      font-size: 1.05rem;
+      color: #3a3a3a;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .after-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fef2f2;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #b91c1c;
+      margin-bottom: 24px;
+      word-break: break-all;
+    }
+
+    .after-example {
+      background: #fef8f8;
+      border-radius: 10px;
+      padding: 24px;
+      border-left: 4px solid #b91c1c;
+    }
+
+    .after-example h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 12px;
+    }
+
+    .after-example .example-label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #b91c1c;
+      margin: 0;
+    }
+
+    /* コピーブロック */
+    .copy-block {
+      margin-bottom: 16px;
+      border: 1px solid #fca5a5;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .copy-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .copy-block-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      background: #fef2f2;
+      border-bottom: 1px solid #fca5a5;
+    }
+
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 16px;
+      background: #b91c1c;
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      font-family: 'Noto Sans JP', sans-serif;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      white-space: nowrap;
+    }
+
+    .copy-btn:hover {
+      background: #991b1b;
+    }
+
+    .copy-btn:active {
+      transform: scale(0.96);
+    }
+
+    .copy-btn.copied {
+      background: #16a34a;
+    }
+
+    .copy-content {
+      padding: 14px 16px;
+      font-size: 0.95rem;
+      color: #3a3a3a;
+      line-height: 1.7;
+      background: #fff;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      user-select: all;
+    }
+
+    /* ===== 8. 補足案内 ===== */
+    .supplement-section {
+      background: #fff;
+      padding: 40px 0;
+    }
+
+    .supplement-list {
+      max-width: 560px;
+      margin: 0 auto;
+      list-style: none;
+    }
+
+    .supplement-list li {
+      font-size: 0.92rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 8px;
+      padding-left: 1.2em;
+      text-indent: -1.2em;
+    }
+
+    .supplement-list li::before {
+      content: '・';
+    }
+
+    /* ===== 9. 相談導線 ===== */
+    .contact-section {
+      background: linear-gradient(135deg, #fef2f2 0%, #fef8f8 100%);
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 16px;
+    }
+
+    .contact-section p {
+      font-size: 1.05rem;
+      color: #444;
+      margin-bottom: 28px;
+      line-height: 1.7;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 44px;
+      background: #fff;
+      color: #b91c1c;
+      font-size: 1.15rem;
+      font-weight: 700;
+      font-family: 'Noto Sans JP', sans-serif;
+      border: 2px solid #b91c1c;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.02em;
+    }
+
+    .contact-btn:hover {
+      background: #b91c1c;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(185, 28, 28, 0.2);
+    }
+
+    /* ===== 10. フッター ===== */
+    .site-footer {
+      background: #1a1a2e;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 0.88rem;
+    }
+
+    /* ===== レスポンシブ対応 ===== */
+    @media (max-width: 640px) {
+      .hero {
+        padding: 56px 20px 48px;
+      }
+
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .hero-price .amount {
+        font-size: 2rem;
+      }
+
+      .section {
+        padding: 48px 0;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 32px;
+      }
+
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bank-card {
+        padding: 28px 20px;
+      }
+
+      .bank-info-table th {
+        width: 90px;
+        font-size: 0.9rem;
+        padding: 12px 4px;
+      }
+
+      .bank-info-table td {
+        font-size: 1rem;
+        padding: 12px 4px;
+      }
+
+      .form-wrapper {
+        padding: 28px 20px;
+      }
+
+      .after-card {
+        padding: 28px 20px;
+      }
+
+      .after-example {
+        padding: 20px 16px;
+      }
+
+      .contact-btn {
+        padding: 16px 36px;
+        font-size: 1.05rem;
+      }
+    }
+
+    /* ===== フェードインアニメーション ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== ヘッダー（ロゴ） ===== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">Buyer育成プログラム</div>
+    </div>
+  </header>
+
+  <!-- ===== 1. ファーストビュー ===== -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">銀行振込専用ページ</span>
+      <h1>Buyer育成プログラム<br>銀行振込専用お申込みページ</h1>
+      <p class="hero-subtitle">中古ブランド物販を学び、実践し、<br>利益化を目指す実践型プログラム</p>
+      <div class="hero-price">
+        <span class="label">参加費</span>
+        <span class="amount">378,000</span>
+        <span class="tax">円（税込）</span>
+      </div>
+      <p class="hero-note">こちらは銀行振込をご希望の方向けのお申込みページです</p>
+    </div>
+  </section>
+
+  <!-- ===== 2. 安心訴求セクション ===== -->
+  <section class="section trust-section">
+    <div class="container">
+      <h2 class="section-title fade-in">安心してお申込みいただけます</h2>
+      <div class="trust-grid fade-in">
+        <div class="trust-item">
+          <div class="trust-icon">🏦</div>
+          <div>
+            <h3>銀行振込で安心</h3>
+            <p>クレジットカードを使わず、銀行振込で安心してお申込みいただけます。</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">📋</div>
+          <div>
+            <h3>振込先を明記</h3>
+            <p>振込先情報は本ページに記載しています。お手元で確認しながらお手続きが可能です。</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">📩</div>
+          <div>
+            <h3>入金確認後にご案内</h3>
+            <p>ご入金の確認が取れ次第、参加手続きのご案内を順次お送りいたします。</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">💬</div>
+          <div>
+            <h3>気軽に相談できる</h3>
+            <p>ご不明な点やご質問がある場合は、担当者へお気軽にご相談いただけます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 3. プログラム内容の紹介 ===== -->
+  <section class="section program-section">
+    <div class="container">
+      <h2 class="section-title fade-in">プログラムで学べること</h2>
+      <p class="program-lead fade-in">
+        Buyer育成プログラムでは、中古ブランド物販の基礎から実践までを<br>
+        体系的に学ぶことができます。
+      </p>
+      <ul class="program-list fade-in">
+        <li>中古ブランド品のリサーチ方法</li>
+        <li>売れる商品の見極め方</li>
+        <li>仕入れと販売の基本的な考え方</li>
+        <li>実践しながら進められる学習環境</li>
+        <li>初心者でも段階的に取り組める内容</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== 4. 銀行振込情報セクション ===== -->
+  <section class="section bank-section">
+    <div class="container">
+      <h2 class="section-title fade-in">お振込先情報</h2>
+      <div class="bank-card fade-in">
+        <p class="bank-card-title">🏦 振込先口座</p>
+        <table class="bank-info-table">
+          <tr>
+            <th>銀行名</th>
+            <td>三井住友銀行</td>
+          </tr>
+          <tr>
+            <th>支店名</th>
+            <td>トランクNORTH支店</td>
+          </tr>
+          <tr>
+            <th>口座種別</th>
+            <td>普通</td>
+          </tr>
+          <tr>
+            <th>口座番号</th>
+            <td>0322018</td>
+          </tr>
+          <tr>
+            <th>口座名義</th>
+            <td>ｶ)ﾕｱﾌﾟﾗﾝﾆﾝｸﾞ</td>
+          </tr>
+        </table>
+      </div>
+      <ul class="bank-notes fade-in">
+        <li>お振込みの際は、お名前がわかる形でお手続きをお願いいたします。</li>
+        <li>振込手数料はお客様のご負担となります。</li>
+        <li>振込完了後は、振込明細票または振込完了画面のスクリーンショットを指定メール宛にご共有ください。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== 5. 銀行振込の流れ ===== -->
+  <section class="section flow-section">
+    <div class="container">
+      <h2 class="section-title fade-in">お申込みの流れ</h2>
+      <div class="flow-steps fade-in">
+        <div class="flow-step">
+          <div class="flow-step-number">STEP1</div>
+          <div class="flow-step-content">
+            <h3>申込みフォームに入力</h3>
+            <p>本ページ下部のフォームに、お名前・メールアドレスをご入力ください。</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-number">STEP2</div>
+          <div class="flow-step-content">
+            <h3>指定口座へお振込み</h3>
+            <p>本ページ記載の口座へ、参加費378,000円（税込）をお振込みください。</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-number">STEP3</div>
+          <div class="flow-step-content">
+            <h3>振込完了をメールでご連絡</h3>
+            <p>振込明細票または振込完了画面のスクリーンショットを、指定メールアドレス宛にお送りください。</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-number">STEP4</div>
+          <div class="flow-step-content">
+            <h3>入金確認後、参加案内を送付</h3>
+            <p>ご入金の確認が取れ次第、プログラム参加のご案内をメールにてお届けします。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 6. 申込みフォームエリア ===== -->
+  <section class="section form-section" id="form">
+    <div class="container">
+      <h2 class="section-title fade-in">お申込みフォーム</h2>
+      <div class="form-wrapper fade-in">
+        <form action="#" method="post" id="application-form">
+          <div class="form-group">
+            <label for="name">お名前 <span class="required">必須</span></label>
+            <input type="text" id="name" name="name" placeholder="例：山田 太郎" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="email">メールアドレス <span class="required">必須</span></label>
+            <input type="email" id="email" name="email" placeholder="例：example@email.com" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label for="phone">電話番号 <span class="optional">任意</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="例：090-1234-5678" autocomplete="tel">
+          </div>
+          <div class="form-checkbox">
+            <label>
+              <input type="checkbox" id="confirm" name="confirm" required>
+              <span>参加費378,000円（税込）の銀行振込申込み内容を確認しました。</span>
+            </label>
+          </div>
+          <button type="submit" class="submit-btn" id="submit-btn" disabled>銀行振込で申し込む</button>
+          <p class="form-note">送信後、振込先情報を改めてメールでもお送りいたします。</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 7. 振込完了後のご案内 ===== -->
+  <section class="section after-section">
+    <div class="container">
+      <h2 class="section-title fade-in">お振込み完了後のご案内</h2>
+      <div class="after-card fade-in">
+        <p>お振込みが完了しましたら、<strong>振込明細票</strong>もしくは<strong>振込完了画面のスクリーンショット</strong>を下記メールアドレス宛にお送りください。</p>
+        <div class="after-email">📧 info@yourplanning.jp</div>
+        <div class="after-example">
+          <h4>📝 以下をコピーしてそのままお使いください</h4>
+
+          <!-- 件名コピーエリア -->
+          <div class="copy-block">
+            <div class="copy-block-header">
+              <p class="example-label">件名</p>
+              <button type="button" class="copy-btn" data-target="copy-subject" aria-label="件名をコピー">コピー</button>
+            </div>
+            <div class="copy-content" id="copy-subject">Buyer育成プログラム 振込完了のご連絡</div>
+          </div>
+
+          <!-- 本文コピーエリア -->
+          <div class="copy-block">
+            <div class="copy-block-header">
+              <p class="example-label">本文</p>
+              <button type="button" class="copy-btn" data-target="copy-body" aria-label="本文をコピー">コピー</button>
+            </div>
+            <div class="copy-content" id="copy-body">お世話になっております。
+Buyer育成プログラムへの参加を申し込みました。
+お振込みが完了しましたのでご連絡いたします。
+
+【お名前】
+（ここにお名前をご記入ください）
+
+【お振込み名義】
+（ここに振込時の名義をご記入ください）
+
+【お振込み日】
+（ここにお振込み日をご記入ください）
+
+【お振込み金額】
+378,000円
+
+【ご連絡事項（あれば）】
+
+お手数ですが、ご確認のほどよろしくお願いいたします。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 8. 補足案内 ===== -->
+  <section class="supplement-section">
+    <div class="container">
+      <ul class="supplement-list fade-in">
+        <li>ご入金確認後、順次ご案内をお送りいたします。</li>
+        <li>数日経ってもご案内が届かない場合は、お手数ですが info@yourplanning.jp までお問い合わせください。</li>
+        <li>メールが届かない場合は、迷惑メールフォルダもあわせてご確認ください。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== 9. 相談導線 ===== -->
+  <section class="section contact-section">
+    <div class="container fade-in">
+      <h2>申込み前に確認したいことがある方へ</h2>
+      <p>プログラムの内容やお支払いについてなど、<br>ご不明な点がございましたらお気軽にご連絡ください。</p>
+      <a href="mailto:info@yourplanning.jp?subject=Buyer%E8%82%B2%E6%88%90%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E7%9B%B8%E8%AB%87%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99&body=%E3%81%8A%E4%B8%96%E8%A9%B1%E3%81%AB%E3%81%AA%E3%81%A3%E3%81%A6%E3%81%8A%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82Buyer%E8%82%B2%E6%88%90%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E7%9B%B8%E8%AB%87%E3%81%97%E3%81%9F%E3%81%8F%E3%80%81%E3%81%94%E9%80%A3%E7%B5%A1%E3%81%84%E3%81%9F%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%E3%80%82" class="contact-btn" role="button">📩 担当者に相談する</a>
+    </div>
+  </section>
+
+  <!-- ===== 10. フッター ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>Copyright&copy; 2026 Your Planning Co., Ltd. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ===== JavaScript ===== -->
+  <script>
+    // チェックボックスの状態で送信ボタンの有効/無効を切り替え
+    (function() {
+      var checkbox = document.getElementById('confirm');
+      var submitBtn = document.getElementById('submit-btn');
+
+      checkbox.addEventListener('change', function() {
+        submitBtn.disabled = !this.checked;
+      });
+    })();
+
+    // コピーボタンの処理
+    (function() {
+      var copyBtns = document.querySelectorAll('.copy-btn');
+      copyBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var targetId = this.getAttribute('data-target');
+          var target = document.getElementById(targetId);
+          if (!target) return;
+
+          var text = target.textContent;
+          var button = this;
+
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(function() {
+              button.textContent = 'コピーしました!';
+              button.classList.add('copied');
+              setTimeout(function() {
+                button.textContent = 'コピー';
+                button.classList.remove('copied');
+              }, 2000);
+            });
+          } else {
+            // フォールバック
+            var textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            button.textContent = 'コピーしました!';
+            button.classList.add('copied');
+            setTimeout(function() {
+              button.textContent = 'コピー';
+              button.classList.remove('copied');
+            }, 2000);
+          }
+        });
+      });
+    })();
+
+    // フェードインアニメーション（Intersection Observer）
+    (function() {
+      var targets = document.querySelectorAll('.fade-in');
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+
+        targets.forEach(function(target) {
+          observer.observe(target);
+        });
+      } else {
+        // Intersection Observer 非対応ブラウザ向け
+        targets.forEach(function(target) {
+          target.classList.add('visible');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
