@@ -777,6 +777,10 @@
       font-size: 0.88rem;
     }
 
+    .br-sp {
+      display: none;
+    }
+
     /* ===== レスポンシブ対応 ===== */
     @media (max-width: 640px) {
       .hero {
@@ -791,8 +795,21 @@
         font-size: 1.1rem;
       }
 
+      .hero-price {
+        padding: 12px 28px;
+        gap: 2px;
+      }
+
+      .hero-price .label {
+        font-size: 0.9rem;
+      }
+
       .hero-price .amount {
-        font-size: 2rem;
+        font-size: 1.7rem;
+      }
+
+      .hero-price .tax {
+        font-size: 0.85rem;
       }
 
       .section {
@@ -846,6 +863,24 @@
 
       .br-pc {
         display: none;
+      }
+
+      .br-sp {
+        display: inline;
+      }
+
+      .copy-content {
+        font-size: 0.65rem;
+        padding: 10px 12px;
+        line-height: 1.6;
+      }
+
+      .copy-block-header {
+        padding: 8px 12px;
+      }
+
+      .after-example h4 {
+        font-size: 0.9rem;
       }
     }
 
@@ -958,7 +993,7 @@
         <span class="amount">378,000</span>
         <span class="tax">円（税込）</span>
       </div>
-      <p class="hero-note">こちらは銀行振込をご希望の方向けのお申込みページです</p>
+      <p class="hero-note">こちらは銀行振込をご希望の方向けの<br class="br-sp">お申込みページです</p>
     </div>
   </section>
 
