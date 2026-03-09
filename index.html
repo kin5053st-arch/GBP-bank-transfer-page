@@ -339,148 +339,6 @@
       line-height: 1.7;
     }
 
-    /* ===== 6. 申込みフォームエリア ===== */
-    .form-section {
-      background: #fff;
-    }
-
-    .form-wrapper {
-      max-width: 520px;
-      margin: 0 auto;
-      background: #fff;
-      border: 1px solid #c8d0e8;
-      border-radius: 16px;
-      padding: 40px 32px;
-      box-shadow: 0 8px 32px rgba(185, 28, 28, 0.06);
-    }
-
-    .form-group {
-      margin-bottom: 24px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #1a1a2e;
-      margin-bottom: 8px;
-    }
-
-    .form-group label .required {
-      display: inline-block;
-      background: #6b7db5;
-      color: #fff;
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 4px;
-      margin-left: 8px;
-      vertical-align: middle;
-    }
-
-    .form-group label .optional {
-      display: inline-block;
-      background: #94a3b8;
-      color: #fff;
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 4px;
-      margin-left: 8px;
-      vertical-align: middle;
-    }
-
-    .form-group input[type="text"],
-    .form-group input[type="email"],
-    .form-group input[type="tel"] {
-      width: 100%;
-      padding: 14px 16px;
-      border: 2px solid #c8d0e8;
-      border-radius: 10px;
-      font-size: 1.1rem;
-      font-family: 'Noto Sans JP', sans-serif;
-      color: #2a2a2a;
-      background: #f6f7fb;
-      transition: border-color 0.2s, box-shadow 0.2s;
-      outline: none;
-    }
-
-    .form-group input:focus {
-      border-color: #3d4f7c;
-      box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.12);
-      background: #fff;
-    }
-
-    .form-group input::placeholder {
-      color: #999;
-    }
-
-    /* チェックボックス */
-    .form-checkbox {
-      margin: 32px 0 28px;
-    }
-
-    .form-checkbox label {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 500;
-      color: #1a1a2e;
-      line-height: 1.6;
-    }
-
-    .form-checkbox input[type="checkbox"] {
-      flex-shrink: 0;
-      width: 22px;
-      height: 22px;
-      margin-top: 2px;
-      accent-color: #3d4f7c;
-      cursor: pointer;
-    }
-
-    /* 送信ボタン */
-    .submit-btn {
-      display: block;
-      width: 100%;
-      padding: 20px 24px;
-      background: linear-gradient(135deg, #3d4f7c 0%, #2d3a65 100%);
-      color: #fff;
-      font-size: 1.25rem;
-      font-weight: 700;
-      font-family: 'Noto Sans JP', sans-serif;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      letter-spacing: 0.04em;
-      transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s;
-      box-shadow: 0 4px 16px rgba(185, 28, 28, 0.25);
-    }
-
-    .submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(185, 28, 28, 0.35);
-    }
-
-    .submit-btn:active {
-      transform: translateY(0);
-    }
-
-    .submit-btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      transform: none;
-      box-shadow: none;
-    }
-
-    .form-note {
-      text-align: center;
-      font-size: 0.92rem;
-      color: #555;
-      margin-top: 16px;
-    }
-
     /* ===== 7. 振込完了後のご案内 ===== */
     .after-section {
       background: #f6f7fb;
@@ -735,10 +593,6 @@
         padding: 12px 4px;
       }
 
-      .form-wrapper {
-        padding: 28px 20px;
-      }
-
       .after-card {
         padding: 28px 20px;
       }
@@ -937,62 +791,24 @@
         <div class="flow-step">
           <div class="flow-step-number">STEP1</div>
           <div class="flow-step-content">
-            <h3>申込みフォームに入力</h3>
-            <p>本ページ下部のフォームに、お名前・メールアドレスをご入力ください。</p>
-          </div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-step-number">STEP2</div>
-          <div class="flow-step-content">
             <h3>指定口座へお振込み</h3>
             <p>本ページ記載の口座へ、参加費378,000円（税込）をお振込みください。</p>
           </div>
         </div>
         <div class="flow-step">
-          <div class="flow-step-number">STEP3</div>
+          <div class="flow-step-number">STEP2</div>
           <div class="flow-step-content">
             <h3>振込完了をメールでご連絡</h3>
             <p>振込明細票または振込完了画面のスクリーンショットを、指定メールアドレス宛にお送りください。</p>
           </div>
         </div>
         <div class="flow-step">
-          <div class="flow-step-number">STEP4</div>
+          <div class="flow-step-number">STEP3</div>
           <div class="flow-step-content">
             <h3>入金確認後、参加案内を送付</h3>
             <p>ご入金の確認が取れ次第、プログラム参加のご案内をメールにてお届けします。</p>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 6. 申込みフォームエリア ===== -->
-  <section class="section form-section" id="form">
-    <div class="container">
-      <h2 class="section-title fade-in">お申込みフォーム</h2>
-      <div class="form-wrapper fade-in">
-        <form action="#" method="post" id="application-form">
-          <div class="form-group">
-            <label for="name">お名前 <span class="required">必須</span></label>
-            <input type="text" id="name" name="name" placeholder="例：山田 太郎" required autocomplete="name">
-          </div>
-          <div class="form-group">
-            <label for="email">メールアドレス <span class="required">必須</span></label>
-            <input type="email" id="email" name="email" placeholder="例：example@email.com" required autocomplete="email">
-          </div>
-          <div class="form-group">
-            <label for="phone">電話番号 <span class="optional">任意</span></label>
-            <input type="tel" id="phone" name="phone" placeholder="例：090-1234-5678" autocomplete="tel">
-          </div>
-          <div class="form-checkbox">
-            <label>
-              <input type="checkbox" id="confirm" name="confirm" required>
-              <span>参加費378,000円（税込）の銀行振込申込み内容を確認しました。</span>
-            </label>
-          </div>
-          <button type="submit" class="submit-btn" id="submit-btn" disabled>銀行振込で申し込む</button>
-          <p class="form-note">送信後、振込先情報を改めてメールでもお送りいたします。</p>
-        </form>
       </div>
     </div>
   </section>
@@ -1076,16 +892,6 @@ Buyer育成プログラムへの参加を申し込みました。
 
   <!-- ===== JavaScript ===== -->
   <script>
-    // チェックボックスの状態で送信ボタンの有効/無効を切り替え
-    (function() {
-      var checkbox = document.getElementById('confirm');
-      var submitBtn = document.getElementById('submit-btn');
-
-      checkbox.addEventListener('change', function() {
-        submitBtn.disabled = !this.checked;
-      });
-    })();
-
     // コピーボタンの処理
     (function() {
       var copyBtns = document.querySelectorAll('.copy-btn');
